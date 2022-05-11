@@ -19,13 +19,17 @@ def connect():
 	# execute a statement
         print('PostgreSQL database version:')
         #cur.execute('SELECT version()')
-        cur.execute("INSERT INTO flares VALUES(%s, %s, %s, %s, %s, %s, %s);", ('2005-10-19 10:23:54', 'X.1',1e-3, 19.1,-101.25, 1000.0, 1e9))
+        sql = "INSERT INTO flares (start_time,classification,flux,lat,lon,radii,max_frequency) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+
+        cur.execute(sql,'2005-10-19 10:23:54', 'X.1',1e-3, 19.1,-101.25, 1000.0, 1e9)
         
         # display the PostgreSQL database server version
-        result = cur.fetchone()
-        print(result)
+        #result = cur.fetchone()
+        #print(result)
 
         conn.commit()
+        print(cur.rowcount, "record inserted.")
+
 	# close the communication with the PostgreSQL
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
