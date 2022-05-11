@@ -19,7 +19,7 @@ def connect():
 	# execute a statement
         print('PostgreSQL database version:')
         #cur.execute('SELECT version()')
-        cursor.execute("INSERT INTO flares VALUES(?, ?, ?, ?, ?, ?, ?)", ('2005-10-19 10:23:54', 'X.10',1e-3, 19.1,-101.25, 1000.0, 1e9))
+        cur.execute("INSERT INTO flares VALUES(?, ?, ?, ?, ?, ?, ?)", ('2005-10-19 10:23:54', 'X.10',1e-3, 19.1,-101.25, 1000.0, 1e9))
 
         # display the PostgreSQL database server version
         result = cur.fetchone()
