@@ -25,7 +25,7 @@ def connect():
         result = cur.fetchone()
         print(result)
 
-        cur.commit()
+        conn.commit()
 	# close the communication with the PostgreSQL
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
