@@ -20,8 +20,8 @@ def connect():
         print('PostgreSQL database version:')
         #cur.execute('SELECT version()')
         sql = "INSERT INTO flares (start_time,classification,flux,lat,lon,radii,max_frequency) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-
-        cur.execute(sql,'2005-10-19 10:23:54', 'X.1',1e-3, 19.1,-101.25, 1000.0, 1e9)
+        val = ('2005-10-19 10:23:54', 'X.1',1e-3, 19.1,-101.25, 1000.0, 1e9)
+        cur.execute(sql,val)
         
         # display the PostgreSQL database server version
         #result = cur.fetchone()
