@@ -36,6 +36,7 @@ output_directory=config[0]
 
 os.system('wget -nc --directory-prefix='+output_directory+' https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json')
 
+
 f = open(output_directory+'/xray-flares-latest.json')
 data = json.load(f)
 print(data[0]['max_time'])
