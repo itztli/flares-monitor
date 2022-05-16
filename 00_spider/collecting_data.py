@@ -27,7 +27,7 @@ def readConfig(configFile):
     config = []
     for line in lines:
         if line[0] != '#':
-            config.append(line)
+            config.append(line.strip())
     return config
 
 config = readConfig('/home/vdelaluz/git/flares-monitor/00_spider/config.dat')
