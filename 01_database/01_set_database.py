@@ -41,7 +41,7 @@ def connect():
         print(datetime_object)
         print(flare_class)
 
-        val = (datetime_object, flare_class,0.0, 0.0,0.0, 0.0, 0.0)
+        val = (datetime_object.strftime('%Y-%m-%d %H:%M:%S'), flare_class,0.0, 0.0,0.0, 0.0, 0.0)
 
         cur.execute(sql,val)
         
