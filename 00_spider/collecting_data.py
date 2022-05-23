@@ -38,8 +38,8 @@ os.system('wget -nc --directory-prefix='+output_directory+'/backup https://servi
 
 f = open(output_directory+'/backup/xray-flares-latest.json')
 data = json.load(f)
-print(data[0]['max_time'])
-print(data[0]['max_class'])
+#print(data[0]['max_time'])
+#print(data[0]['max_class'])
 XML_string = ''
 XML_string = XML_string + '<xml>\n'
 XML_string = XML_string + ' <flare>\n'
