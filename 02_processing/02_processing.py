@@ -24,9 +24,9 @@ def connect():
 
         sql = "SELECT * from flares"
 
-        cursor.execute(sql)
+        cur.execute(sql)
 
-        records = cursor.fetchall()
+        records = cur.fetchall()
 
         for row in records:
             print("date = ", row[0], )
