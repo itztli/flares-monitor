@@ -22,7 +22,7 @@ def connect():
         print('PostgreSQL database version:')
         #cur.execute('SELECT version()')
 
-        sql = "INSERT INTO flares (start_time,classification,flux,lat,lon,radii,max_frequency) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+        sql = "INSERT INTO flares(start_time, classification, flux, lat, lon, radii, max_frequency) VALUES(%s, %s, %s, %s, %s, %s, %s);"
 
         tree = ET.parse('/home/vdelaluz/data/latest.xml')
         root = tree.getroot()
@@ -41,8 +41,8 @@ def connect():
         print(datetime_object)
         print(flare_class)
 
-        val = (datetime_object.strftime('%Y-%m-%d %H:%M:%S'), flare_class,0.0, 0.0,0.0, 0.0, 0.0)
-
+        val = (datetime_object.strftime('%Y-%m-%d %H:%M:%S'), flare_class,'0.0', '0.0','0.0', '0.0', '0.0')
+        print(val)
         cur.execute(sql,val)
         
         # display the PostgreSQL database server version
