@@ -38,7 +38,7 @@ def connect():
 
         
         for row in records:
-            X.append(datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+            X.append(row[0])  #datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
             flare_class = row[1]
             event = flare_class.split('.')
             watts = float(event[1])*swpc_to_watts[event[0]]
