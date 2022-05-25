@@ -50,7 +50,7 @@ def connect():
         
         ax.plot(X,Y)
 
-        plt.savefig("flares.png")
+        plt.savefig("/data/vdelaluz/flares.png")
         
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
