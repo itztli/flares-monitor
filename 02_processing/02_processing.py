@@ -54,7 +54,7 @@ def connect():
 
         plt.savefig("/data/vdelaluz/flares.png")
 
-        process = subprocess.Popen(['scp /data/vdelaluz/flares.png vdelaluz@10.99.1.138:/home/vdelaluz/public_html/gicc/static/flares/'],
+        process = subprocess.Popen(['scp','/data/vdelaluz/flares.png','vdelaluz@10.99.1.138:/home/vdelaluz/public_html/gicc/static/flares/'],
                                    stdout=subprocess.PIPE, 
                                    stderr=subprocess.PIPE)        
         stdout, stderr = process.communicate()
