@@ -53,11 +53,9 @@ if max == -1:
 else:
     filename = 'xray-flares-latest.json.'+str(max)
 
-
-f = open(output_directory+'/backup/'+filename)
-
 print(output_directory+'/backup/'+filename)
 
+f = open(output_directory+'/backup/'+filename)
 data = json.load(f)
 
 #print(data[0]['max_time'])
