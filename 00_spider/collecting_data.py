@@ -37,7 +37,7 @@ output_directory=config[0]
 os.system('wget --directory-prefix='+output_directory+'/backup https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json')
 
 dir_path = output_directory
-res = []
+
 for path in os.listdir(dir_path):
     # check if current path is a file
     if os.path.isfile(os.path.join(dir_path, path)):
@@ -53,10 +53,13 @@ if max == -1:
 else:
     filename = 'xray-flares-latest.json.'+str(max)
 
-print(res)
 
 f = open(output_directory+'/backup/'+filename)
+
+print(output_directory+'/backup/'+filename)
+
 data = json.load(f)
+
 #print(data[0]['max_time'])
 #print(data[0]['max_class'])
 XML_string = ''
