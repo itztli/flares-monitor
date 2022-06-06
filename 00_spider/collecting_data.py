@@ -38,10 +38,13 @@ os.system('wget --directory-prefix='+output_directory+'/backup https://services.
 
 dir_path = output_directory + '/backup/'
 
+max = -1
+
 for path in os.listdir(dir_path):
     # check if current path is a file
     if os.path.isfile(os.path.join(dir_path, path)):
         split_file = path.split('.')
+        print(split_file)
         if len(split_file) == 2:
             max = -1
         if len(split_file) > 2:
