@@ -36,7 +36,7 @@ output_directory=config[0]
 
 os.system('wget --directory-prefix='+output_directory+'/backup https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json')
 
-dir_path = output_directory
+dir_path = output_directory + '/backup/'
 
 for path in os.listdir(dir_path):
     # check if current path is a file
