@@ -41,17 +41,17 @@ res = []
 for path in os.listdir(dir_path):
     # check if current path is a file
     if os.path.isfile(os.path.join(dir_path, path)):
-	split_file = path.split('.')
-		if len(split_file) == 2:
-			max = -1
-		if len(split_file) > 2:
-			if int(split_file[2]) > max:
-				max = int(split_file[2])
+        split_file = path.split('.')
+        if len(split_file) == 2:
+            max = -1
+        if len(split_file) > 2:
+            if int(split_file[2]) > max:
+                max = int(split_file[2])
 
 if max == -1:
-	filename = 'xray-flares-latest.json'
+    filename = 'xray-flares-latest.json'
 else:
-	filename = 'xray-flares-latest.json.'+str(max)
+    filename = 'xray-flares-latest.json.'+str(max)
 
 print(res)
 
