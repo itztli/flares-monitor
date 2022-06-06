@@ -34,9 +34,28 @@ config = readConfig('/home/vdelaluz/git/flares-monitor/00_spider/config.dat')
     
 output_directory=config[0]
 
-os.system('wget -nc --directory-prefix='+output_directory+'/backup https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json')
+os.system('wget --directory-prefix='+output_directory+'/backup https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json')
 
-f = open(output_directory+'/backup/xray-flares-latest.json','w')
+dir_path = output_directory
+res = []
+for path in os.listdir(dir_path):
+    # check if current path is a file
+    if os.path.isfile(os.path.join(dir_path, path)):
+	split_file = path.split('.')
+		if len(split_file) == 2:
+			max = -1
+		if len(split_file) > 2:
+			if int(split_file[2]) > max:
+				max = int(split_file[2])
+
+if max == -1:
+	filename = 'xray-flares-latest.json'
+else:
+	filename = 'xray-flares-latest.json.'+str(max)
+
+print(res)
+
+f = open(output_directory+'/backup/'+filename)
 data = json.load(f)
 #print(data[0]['max_time'])
 #print(data[0]['max_class'])
