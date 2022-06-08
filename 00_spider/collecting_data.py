@@ -56,7 +56,22 @@ if max == -1:
 else:
     filename = 'xray-flares-latest.json.'+str(max)
 
-print(output_directory+'/backup/'+filename)
+#print(output_directory+'/backup/'+filename)
+
+# 1) Leer informacion del last.dat (el ultimo max_time, en caso de que no exista, lo creamos)
+
+try:
+    with open(output_directory+'/last.dat') as file:
+        linestr = file.read()
+        max_time = datetime.strptime(linestr.strip(), '%Y-%m-%dT%H:%M:%SZ')
+except OSError as e:
+    print(e.errno)
+    print("Ignoring last.dat")
+    max_time = datetime.strptime('1980-01-01 01:01:01', '%Y-%m-%d %H:%M:%S ')
+
+
+
+# 2) Leer la informacion del ultimo archivo bajado con wget
 
 f = open(output_directory+'/backup/'+filename)
 data = json.load(f)
@@ -76,4 +91,17 @@ XML_string = XML_string + ' </flare>\n'
 XML_string = XML_string + '</xml>'
 print(XML_string)
 f.close()
+
+# 3) si wget > last actualizar last.dat y conservar el archivo wget, en otro caso borrar wget.
+
+if data[0]['max_time'] <= max_time:
+    #delete output_directory+'/backup/'+filename
+    if not '-rf' in  output_directory+'/backup/'+filename:
+        os.remove(output_directory+'/backup/'+filename)
+
+    try:
+        with open(output_directory+'/last.dat','w') as file:
+            file.write(data[0]['max_time'].strftime('%Y-%m-%dT%H:%M:%SZ')
+    except OSError as e:
+        print(e.errno)
 
