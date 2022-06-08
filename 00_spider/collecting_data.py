@@ -101,7 +101,7 @@ if data[0]['max_time'] <= max_time:
 
     try:
         with open(output_directory+'/last.dat','w') as file:
-            file.write(data[0]['max_time'].strftime('%Y-%m-%dT%H:%M:%SZ')
+            file.write(data[0]['max_time'].strftime('%Y-%m-%dT%H:%M:%SZ'))
     except OSError as e:
         print(e.errno)
 
