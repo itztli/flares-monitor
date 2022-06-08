@@ -19,6 +19,7 @@
 
 import os
 import json
+from datetime import datetime
 
 def readConfig(configFile):
     with open(configFile) as f:
