@@ -98,8 +98,9 @@ f.close()
 last_time =  datetime.strptime((data[0]['max_time']).strip(),'%Y-%m-%dT%H:%M:%SZ') 
 if last_time > max_time:
     #delete output_directory+'/backup/'+filename
-    if not '-rf' in  output_directory+'/backup/'+filename:
-        os.remove(output_directory+'/backup/'+filename)
+    #if not '-rf' in  output_directory+'/backup/'+filename:
+    print('Deleting '+output_directory+'/backup/'+filename)
+    os.remove(output_directory+'/backup/'+filename)
 
     try:
         with open(output_directory+'/last.dat','w') as file:
