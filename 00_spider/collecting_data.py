@@ -96,7 +96,7 @@ f.close()
 # 3) si wget > last actualizar last.dat y conservar el archivo wget, en otro caso borrar wget.
 
 last_time =  datetime.strptime((data[0]['max_time']).strip(),'%Y-%m-%dT%H:%M:%SZ') 
-if last_time <= max_time:
+if last_time > max_time:
     #delete output_directory+'/backup/'+filename
     if not '-rf' in  output_directory+'/backup/'+filename:
         os.remove(output_directory+'/backup/'+filename)
