@@ -68,7 +68,7 @@ try:
 except OSError as e:
     print(e.errno)
     print("Ignoring last.dat")
-    max_time = datetime.strptime('1980-01-01 01:01:01', '%Y-%m-%d %H:%M:%S ')
+    max_time = datetime.strptime('1980-01-01 01:01:01', '%Y-%m-%d %H:%M:%S')
 
 
 
