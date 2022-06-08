@@ -45,7 +45,7 @@ for path in os.listdir(dir_path):
     # check if current path is a file
     if os.path.isfile(os.path.join(dir_path, path)):
         split_file = path.split('.')
-        print(split_file)
+        #print(split_file)
         if len(split_file) == 2:
             max = -1
         if len(split_file) > 2:
@@ -66,8 +66,8 @@ try:
         linestr = file.read()
         max_time = datetime.strptime(linestr.strip(), '%Y-%m-%dT%H:%M:%SZ')
 except OSError as e:
-    print(e.errno)
-    print("Ignoring last.dat")
+    #print(e.errno)
+    #print("Ignoring last.dat")
     max_time = datetime.strptime('1980-01-01 01:01:01', '%Y-%m-%d %H:%M:%S')
 
 
@@ -110,7 +110,7 @@ if last_time > max_time:
     except OSError as e:
         print(e.errno)
 else:
-    print('Deleting '+output_directory+'/backup/'+filename)
+    #print('Deleting '+output_directory+'/backup/'+filename)
     os.remove(output_directory+'/backup/'+filename)
 
 
